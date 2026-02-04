@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base */
+body {
+  background-color: #020b18;
+  color: #e5e7eb;
+  font-family: Inter, sans-serif;
+  background-image: radial-gradient(circle at 50% 0%, #0a1931 0%, #020b18 100%);
+}
+
+/* Luxe Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+/* Kanban Card Glow */
+.kanban-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.02)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.kanban-card:hover {
+  transform: scale(1.02) translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* Glow Colors */
+.card-pink {
+  --glow-color: #ff2e63;
+}
+.card-teal {
+  --glow-color: #00d1ff;
+}
+.card-blue {
+  --glow-color: #4d77ff;
+}
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+.editing-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 255, 194, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 194, 0.25),
+    0 0 20px rgba(0, 255, 194, 0.15);
+}
+
